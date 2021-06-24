@@ -1,5 +1,6 @@
 const db = require('./db')
 
+// login
   const login=(req,phoneNumber,password)=> {
   return db.User.findOne({phoneNumber,password})
   .then(user=>{
@@ -23,6 +24,7 @@ const db = require('./db')
   })
   }
  
+  // register 
   const register=(phoneNumber,username,password)=>{
     return db.User.findOne({phoneNumber})
     .then(user=>{
@@ -48,6 +50,8 @@ const db = require('./db')
      }
     })
  }
+
+//  add todos
  const addTodo=(req,todos,phoneNumber)=>{
   return db.User.findOne({phoneNumber})
   .then(user=>{
@@ -70,6 +74,7 @@ const db = require('./db')
   })
  }
 
+//  display todos
  const displayTodo=(req,phoneNumber)=>{
   return db.User.findOne({phoneNumber})
   .then(user=>{
